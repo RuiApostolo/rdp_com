@@ -1,0 +1,3 @@
+[submodule "xyz_com_merge"]
+	path = xyz_com_merge
+	url = git@github.com:RuiApostolo/xyz_com_merge.git
