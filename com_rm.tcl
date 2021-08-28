@@ -9,7 +9,10 @@
 # set micelle atom types
 # set micelle_names "not type 8 9 10"
 # loading from file instead
-set micelle_indexes_file "atoms_list.txt"
+set micelle_atomselect_file "atoms_list.txt"
+# load micelle atom indexes from file
+set micelle_names [readfile $micelle_atomselect_file]
+# set micelle_names "not type 12"
 # set load_ts_start
 set load_ts_start 700
 # set load_ts_stop // -1 == last
@@ -57,8 +60,6 @@ puts " "
 puts "Loading complete, writing COM coordinates file"
 puts " "
 
-# load micelle atom indexes from file
-set micelle_names [readfile $micelle_indexes_file]
 # set micelle atom selection
 set micelle [atomselect top $micelle_names]
 # remove periodic imates
