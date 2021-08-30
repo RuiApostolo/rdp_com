@@ -40,7 +40,7 @@ The first file to be run is [xyz\_com\_gen.tcl][tcl1], which has several options
 - `box_size_file`: the name of the file where the size of the box should be saved to.
 Each line will have the `x`, `y`, and `z` box dimentions separated by whitespace.
 
-Then the [bash script][script] runs the [xyz\_com\_merge][xyzcommerge] utility (see that repo for detaisl). The input flags are the XYZ and COM file names, the output flag is for the name of the new XYZ file with the COM merged, and the atomtype flag is the atom type the merged script gives to the COM 'atom'.
+Then the [bash script][script] runs the [xyz\_com\_merge][xyzcommerge] utility (see that repo for details). The input flags are the XYZ and COM file names, the output flag is for the name of the new XYZ file with the COM merged, and the atomtype flag is the atom type the merged script gives to the COM 'atom'.
 
 The script then runs a [second tcl script][tcl2] that calculates the <i>g</i>(<i>r</i>) and the radial density profile from the COM of the target system. The editable variables in this file are:
 - `animate read xyz micelle_com.xyz waitfor all`: the file name will need to be changed if a different one was used in the previous step.
