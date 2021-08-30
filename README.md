@@ -59,6 +59,7 @@ The variables at the top of the file are:
 - `boxsize`: the name of the file with the box size data, calculated by the [first tcl script][tcl1].
 - `Nmol`: the number of mols of interest in the system (e.g., the micelle).
 - `mol_mass`: the molar mass, in Dalton, for each of the molecules above.
+- `rhorfile`: the name of the file where the <i>ρ</i>(<i>r</i>) information will be written to.
 
 
 

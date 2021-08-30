@@ -9,6 +9,8 @@ boxsize = 'box_size.dat'
 Nmol = 22
 # Mass per molecule in Da
 mol_mass = 326.28209507
+# Name of file for rhor output
+rhorfile = 'rhor.dat'
 
 box = pd.read_csv(
     boxsize,
@@ -73,3 +75,12 @@ fig_rhor.update_xaxes(range=[0, 50])
 fig_rhor.update_yaxes(range=[0, 9E-21])
 fig_rhor.write_html('fig_rhor.html')
 fig_rhor.show()
+
+
+f.to_csv(
+    path_or_buf=rhorfile,
+    sep=' ',
+    columns=['bins', 'rhor'],
+    header=False,
+    index=False
+    )
