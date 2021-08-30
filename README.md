@@ -20,7 +20,7 @@ This repo uses the [xyz\_com\_merge submodule][xyzcommerge]. To keep the submodu
 
 The [bash script][script] runs all the parts of the system, but options are available in other files.
 
-The first file to be run is [com\_rm.tcl][tcl], which has several options:
+The first file to be run is [xyz\_com\_gen.tcl][tcl1], which has several options:
 - `micelle_atomselect_file`: file with the vmd-style atomselection text to use for the selection of a micelle (or target group of atoms). A choice to use a file was done here because with complex systems of many molecules, these texts can grow large and hard to create. Example text: `index >= 130 and index <= 194 or index >= 390 and index <= 519`
 - `micelle_names`: if the atom selection text is in the file, use the `readfile` version. Otherwise, if your atom selection text is simple, you can assign the text directly to the variable.
 - `load_ts_start`: the number of the first timestep to load from the LAMMPS dumpfile defined below.
@@ -37,7 +37,7 @@ The first file to be run is [com\_rm.tcl][tcl], which has several options:
 
 Then the [bash script][script] runs the [xyz\_com\_merge][xyzcommerge] utility (see that repo for detaisl). The input flags are the XYZ and COM file names, the output flag is for the name of the new XYZ file with the COM merged, and the atomtype flag is the atom type the merged script gives to the COM 'atom'.
 
-Finally, the script runs a second tcl script that calculates the <i>g</i>(<i>r</i>) and the radial density profile from the COM of the target system. The editable variables in this file are:
+Finally, the script runs a [second tcl script][tcl2] that calculates the <i>g</i>(<i>r</i>) and the radial density profile from the COM of the target system. The editable variables in this file are:
 - `animate read xyz micelle_com.xyz waitfor all`: the file name will need to be changed if a different one was used in the previous step.
 - `com_type`: the atom type of the COM 'atom'.
 - `bin_width`: the bin width for the <i>g</i>(<i>r</i>) histogram.
@@ -52,5 +52,6 @@ Finally, the script runs a second tcl script that calculates the <i>g</i>(<i>r</
 [python]: <https://www.python.org/downloads/> (Download Python 3)
 [vmd]: <https://www.ks.uiuc.edu/Research/vmd/> (Visual Molecular Dynamics)
 [xyzcommerge]: <https://github.com/RuiApostolo/xyz_com_merge> (xyz\_com\_merge github)
-[script]: <./com_rm_rhor.sh> (bash script)
-[tcl]: <./com_rm.tcl> (tcl script) 
+[script]: <./rdp_com.sh> (bash script)
+[tcl1]: <./xyz_com_gen.tcl> (xyz generator tcl script) 
+[tcl2]: <./rm_com_gofr.tcl> (gofr tcl script)
