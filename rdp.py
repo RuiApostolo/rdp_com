@@ -25,7 +25,7 @@ box_vol = box['volume'].mean()
 
 conv_factor = 1.6605E-27
 
-avg_mass_dens = Nmol * mol_mass * box_vol * conv_factor
+avg_mass_dens = (Nmol * mol_mass * conv_factor) / (box_vol * 1E-30)
 
 f = pd.read_csv(
     gofrfile,
@@ -72,7 +72,7 @@ fig_rhor.update_layout(
     showlegend=True
     )
 fig_rhor.update_xaxes(range=[0, 50])
-fig_rhor.update_yaxes(range=[0, 9E-21])
+fig_rhor.update_yaxes(range=[0, 0.2])
 fig_rhor.write_html('fig_rhor.html')
 fig_rhor.show()
 
